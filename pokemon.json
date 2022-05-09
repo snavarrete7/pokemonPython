@@ -1,0 +1,58 @@
+{
+  "Charmander": {
+    "Vida": 282,
+    "Mana": 100,
+    "Potencia": 223,
+    "Tipo": "Fuego",
+    "Id": 1,
+    "Ataques": [{
+      "Ataque1":{
+        "Potencia": 100,
+        "Mana": 10,
+        "Nombre": "Ataque1",
+        "Id": 1,
+        "Tipo1": "Ofensivo",
+        "Tipo2": "Fuego"
+    },
+      "Ataque2": {
+        "Potencia": 200,
+        "Mana": 10,
+        "Nombre": "Ataque2",
+        "Id": 2,
+        "Tipo1": "Ofensivo",
+        "Tipo2": "Fuego"
+      }
+    }],
+    "Velocidad": 251
+
+  },
+
+    "Squirtle": {
+    "Vida": 292,
+    "Mana": 100,
+    "Potencia": 214,
+    "Tipo": "Agua",
+    "Id": 2,
+    "Ataques": [{
+      "Ataque1":{
+        "Potencia": 100,
+        "Mana": 10,
+        "Nombre": "Ataque1",
+        "Id": 1,
+        "Tipo1": "Ofensivo",
+        "Tipo2": "Fuego"
+    },
+      "Ataque2": {
+        "Potencia": 200,
+        "Mana": 10,
+        "Nombre": "Ataque2",
+        "Id": 2,
+        "Tipo1": "Ofensivo",
+        "Tipo2": "Fuego"
+      }
+    }],
+    "Velocidad": 253
+
+  }
+
+}
