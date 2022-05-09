@@ -119,7 +119,6 @@ class Partida:
                 time.sleep(1)
                 if self.finPartida(x, y) == True:
                     break
-
                 self.resumenAtaque(y, x, ataquePokemon2, eficaz2, curar2, potencia2, noEficaz2)
                 time.sleep(1)
                 if self.finPartida(y, x) == True:
