@@ -8,6 +8,8 @@ import json
 
 #TODO: Primero habra que leer el json y despues crear las clases pokemon y ataques con los valores del json que se han leido
 
+#TODO: crear un archivo sh que ejecute el codigo
+
 class Pokemon:
     def __init__(self, name, heal, mana, potencia, potenciaEspecial, defensa, defensaEspecial, type, ide, atacks, speed):
         self.nombre = name
