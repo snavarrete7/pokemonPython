@@ -26,7 +26,6 @@ class Pokemon:
         # print(self.nombre + " va a realizar " + ataque.nombre + " !")
         # time.sleep(1)
 
-
         eficaz = False
         noEficaz = False
         curar = False
@@ -163,6 +162,33 @@ class Partida:
                 exit()
             else:
                 print("Opción invalida")
+
+
+    def selecionarPokemonPrueba(self):
+
+        f = open("pokemon.json", "r")
+        c = f.read()
+        f.close()
+        js = json.loads(c)
+
+        for x in js:
+            print("--------------------------------")
+            print(js[x]["Nombre"])
+            print("Vida: " + str(js[x]["Vida"]))
+            print("Potencia " + str(js[x]["Potencia"]))
+            print("Potencia especial " + str(js[x]["Potencia especial"]))
+            print("Defensa " + str(js[x]["Defensa"]))
+            print("Defensa especial " + str(js[x]["Defensa especial"]))
+            print("Tipo: " + str(js[x]["Tipo"]))
+            print("Introduce " + x + " para seleccionar a " + js[x]["Nombre"])
+            print("--------------------------------")
+
+        opcion = input("Numero del pokemon escogido: ")
+
+        #TODO: inicializar valores de ataques y pokemons
+
+
+        pass
 
     def seleccionarPokemonJugadorVSJugador(self):
 

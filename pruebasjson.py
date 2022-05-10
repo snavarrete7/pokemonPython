@@ -28,6 +28,27 @@ print("p:::::::p")
 print("p:::::::p")
 print("ppppppppp")
 
-m = input()
 
-print(js[m]["Ataques"][0]["1"]["Potencia"])
+
+print(js["1"]["Ataques"][0]["1"]["Potencia"])
+
+
+for x in js:
+    print("--------------------------------")
+    print(js[x]["Nombre"])
+    print("Vida: " + str(js[x]["Vida"]))
+    print("Potencia " + str(js[x]["Potencia"]))
+    print("Potencia especial " + str(js[x]["Potencia especial"]))
+    print("Defensa " + str(js[x]["Defensa"]))
+    print("Defensa especial " + str(js[x]["Defensa especial"]))
+    print("Tipo: " + str(js[x]["Tipo"]))
+    print("Introduce " + x + " para seleccionar a " + js[x]["Nombre"])
+    print("--------------------------------")
+
+opcion = input("Numero del pokemon escogido: ")
+print(js[opcion]["Nombre"])
+
+
+
+
+
