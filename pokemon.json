@@ -1,57 +1,104 @@
 {
-  "Charmander": {
+  "1": {
+    "Nombre": "Charmander",
     "Vida": 282,
     "Mana": 100,
     "Potencia": 223,
+    "Potencia especial": 240,
+    "Defensa": 203,
+    "Defensa especial": 218,
     "Tipo": "Fuego",
     "Id": 1,
     "Ataques": [{
-      "Ataque1":{
-        "Potencia": 100,
-        "Mana": 10,
-        "Nombre": "Ataque1",
-        "Id": 1,
-        "Tipo1": "Ofensivo",
-        "Tipo2": "Fuego"
-    },
-      "Ataque2": {
-        "Potencia": 200,
-        "Mana": 10,
-        "Nombre": "Ataque2",
-        "Id": 2,
-        "Tipo1": "Ofensivo",
-        "Tipo2": "Fuego"
-      }
-    }],
+        "1":{
+          "Potencia": 120,
+          "PP": 10,
+          "Nombre": "Lanzallamas",
+          "Id": 1,
+          "Tipo1": "Ofensivo",
+          "Tipo2": "Fuego",
+          "Especial": false
+      },
+        "2": {
+          "Potencia": 65,
+          "PP": 15,
+          "Nombre": "Puño de fuego",
+          "Id": 2,
+          "Tipo1": "Ofensivo",
+          "Tipo2": "Fuego",
+          "Especial": false
+        },
+        "3": {
+          "Potencia": 20,
+          "PP": 20,
+          "Nombre": "Bomba de humo",
+          "Id": 3,
+          "Tipo1": "Estadistico",
+          "Tipo2": "Normal",
+          "Especial": false
+        },
+        "4": {
+          "Potencia": 80,
+          "PP": 20,
+          "Nombre": "Aliento de dragon",
+          "Id": 3,
+          "Tipo1": "Ofensivo",
+          "Tipo2": "Dragon",
+          "Especial": true
+        }
+      }],
     "Velocidad": 251
 
   },
-
-    "Squirtle": {
-    "Vida": 292,
-    "Mana": 100,
-    "Potencia": 214,
-    "Tipo": "Agua",
-    "Id": 2,
-    "Ataques": [{
-      "Ataque1":{
-        "Potencia": 100,
-        "Mana": 10,
-        "Nombre": "Ataque1",
-        "Id": 1,
-        "Tipo1": "Ofensivo",
-        "Tipo2": "Fuego"
-    },
-      "Ataque2": {
-        "Potencia": 200,
-        "Mana": 10,
-        "Nombre": "Ataque2",
-        "Id": 2,
-        "Tipo1": "Ofensivo",
-        "Tipo2": "Fuego"
-      }
-    }],
-    "Velocidad": 253
+    "2": {
+      "Nombre": "Squirtle",
+      "Vida": 292,
+      "Mana": 100,
+      "Potencia": 214,
+      "Potencia especial": 218,
+      "Defensa": 251,
+      "Defensa especial": 249,
+      "Tipo": "Agua",
+      "Id": 2,
+      "Ataques": [{
+        "1":{
+          "Potencia": 40,
+          "PP": 10,
+          "Nombre": "Pistola Agua",
+          "Id": 1,
+          "Tipo1": "Ofensivo",
+          "Tipo2": "Agua",
+          "Especial": true
+      },
+        "2": {
+          "Potencia": 90,
+          "PP": 10,
+          "Nombre": "Corte de agua",
+          "Id": 2,
+          "Tipo1": "Ofensivo",
+          "Tipo2": "Agua",
+          "Especial": false
+        },
+        "3": {
+          "Potencia": 50,
+          "PP": 40,
+          "Nombre": "Golpe rapido",
+          "Id": 3,
+          "Tipo1": "Ofensivo",
+          "Tipo2": "Normal",
+          "Especial": false
+        },
+        "4": {
+          "Potencia": 110,
+          "PP": 5,
+          "Nombre": "Hydro bomba",
+          "Id": 3,
+          "Tipo1": "Ofensivo",
+          "Tipo2": "Agua",
+          "Especial": true
+        }
+      }],
+      "Velocidad": 253
 
   }
 
