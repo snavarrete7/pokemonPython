@@ -41,13 +41,13 @@
           "Potencia": 80,
           "PP": 20,
           "Nombre": "Aliento de dragon",
-          "Id": 3,
+          "Id": 4,
           "Tipo1": "Ofensivo",
           "Tipo2": "Dragon",
           "Especial": true
         }
       }],
-    "Velocidad": 251
+    "Velocidad": 255
 
   },
     "2": {
@@ -92,7 +92,7 @@
           "Potencia": 110,
           "PP": 5,
           "Nombre": "Hydro bomba",
-          "Id": 3,
+          "Id": 4,
           "Tipo1": "Ofensivo",
           "Tipo2": "Agua",
           "Especial": true

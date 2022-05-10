@@ -45,8 +45,10 @@ for x in js:
     print("Introduce " + x + " para seleccionar a " + js[x]["Nombre"])
     print("--------------------------------")
 
+for x in range(4):
+    print(js["1"]["Ataques"][0][str(x+1)])
 opcion = input("Numero del pokemon escogido: ")
-print(js[opcion]["Nombre"])
+print(js[opcion]["Ataques"][0]["1"])
 
 
 
