@@ -10,6 +10,32 @@ import json
 
 #TODO: Mirar error porque falta añadir tipo Dragon, Normal...
 
+
+def logo():
+    print("Pokemon Game inspired in Generation 1, coded by snavarrete7 (Python 3.10)")
+    print("")
+    print("                                      kkkkkkkk")
+    print("                                      k::::::k")
+    print("ppppp   ppppppppp      ooooooooooo    k:::::k    kkkkkkk    eeeeeeeeeeee       mmmmmmm    mmmmmmm      ooooooooooo   nnnn  nnnnnnnn")
+    print("p::::ppp:::::::::p   oo:::::::::::oo  k:::::k   k:::::k   ee::::::::::::ee   mm:::::::m  m:::::::mm  oo:::::::::::oo n:::nn::::::::nn")
+    print("p:::::::::::::::::p o:::::::::::::::o k:::::k  k:::::k   e::::::eeeee:::::eem::::::::::mm::::::::::mo:::::::::::::::on::::::::::::::nn")
+    print("pp::::::ppppp::::::po:::::ooooo:::::o k:::::k k:::::k   e::::::e     e:::::em::::::::::::::::::::::mo:::::ooooo:::::onn:::::::::::::::n")
+    print("p:::::p     p:::::po::::o     o::::o k::::::k:::::k    e:::::::eeeee::::::em:::::mmm::::::mmm:::::mo::::o     o::::o  n:::::nnnn:::::n")
+    print("p:::::p     p:::::po::::o     o::::o k:::::::::::k     e:::::::::::::::::e m::::m   m::::m   m::::mo::::o     o::::o  n::::n    n::::n")
+    print("p:::::p     p:::::po::::o     o::::o k:::::::::::k     e::::::eeeeeeeeeee  m::::m   m::::m   m::::mo::::o     o::::o  n::::n    n::::n")
+    print("p:::::p    p::::::po::::o     o::::o k::::::k:::::k    e:::::::e           m::::m   m::::m   m::::mo::::o     o::::o  n::::n    n::::n")
+    print("p:::::ppppp:::::::po:::::ooooo:::::ok::::::k k:::::k   e::::::::e          m::::m   m::::m   m::::mo:::::ooooo:::::o  n::::n    n::::n")
+    print("p::::::::::::::::p o:::::::::::::::ok::::::k  k:::::k   e::::::::eeeeeeee  m::::m   m::::m   m::::mo:::::::::::::::o  n::::n    n::::n")
+    print("p::::::::::::::pp   oo:::::::::::oo k::::::k   k:::::k   ee:::::::::::::e  m::::m   m::::m   m::::m oo:::::::::::oo   n::::n    n::::n")
+    print("p::::::pppppppp       ooooooooooo   kkkkkkkk    kkkkkkk    eeeeeeeeeeeeee  mmmmmm   mmmmmm   mmmmmm   ooooooooooo     nnnnnn    nnnnnn")
+    print("p:::::p")
+    print("p:::::p")
+    print("p:::::::p")
+    print("p:::::::p")
+    print("p:::::::p")
+    print("ppppppppp")
+    print(" ")
+
 class Pokemon:
     def __init__(self, name, heal, mana, potencia, potenciaEspecial, defensa, defensaEspecial, type, ide, atacks, speed):
         self.nombre = name
@@ -168,6 +194,10 @@ class Partida:
 
     def seleccionarPokemonJugadorVSJugador(self):
 
+        print("")
+        print("SELECCIONA UN POKEMON: ")
+        print("")
+
         f = open("pokemon.json", "r")
         c = f.read()
         f.close()
@@ -177,10 +207,10 @@ class Partida:
             print("--------------------------------")
             print(js[x]["Nombre"])
             print("Vida: " + str(js[x]["Vida"]))
-            print("Potencia " + str(js[x]["Potencia"]))
-            print("Potencia especial " + str(js[x]["Potencia especial"]))
-            print("Defensa " + str(js[x]["Defensa"]))
-            print("Defensa especial " + str(js[x]["Defensa especial"]))
+            print("Potencia: " + str(js[x]["Potencia"]))
+            print("Potencia: especial " + str(js[x]["Potencia especial"]))
+            print("Defensa: " + str(js[x]["Defensa"]))
+            print("Defensa especial: " + str(js[x]["Defensa especial"]))
             print("Tipo: " + str(js[x]["Tipo"]))
             print("Introduce " + x + " para seleccionar a " + js[x]["Nombre"])
             print("--------------------------------")
@@ -257,12 +287,12 @@ class Partida:
                 eficaz2, curar2, ataquePokemon2, potencia2, noEficaz2, estad2 = self.partida(y, x)
 
                 self.resumenAtaque(x, y, ataquePokemon1, eficaz1, curar1, potencia1, noEficaz1, estad1)
-                time.sleep(1)
+                time.sleep(2)
                 if self.finPartida(x, y) == True:
                     break
 
                 self.resumenAtaque(y, x, ataquePokemon2, eficaz2, curar2, potencia2, noEficaz2, estad2)
-                time.sleep(1)
+                time.sleep(2)
                 if self.finPartida(y, x) == True:
                     break
             else:
@@ -270,12 +300,12 @@ class Partida:
                 eficaz2, curar2, ataquePokemon2, potencia2, noEficaz2, estad2 = self.partida(x, y)
 
                 self.resumenAtaque(y, x, ataquePokemon1, eficaz1, curar1, potencia1,noEficaz1, estad1)
-                time.sleep(1)
+                time.sleep(2)
                 if self.finPartida(y, x) == True:
                     break
 
                 self.resumenAtaque(x, y, ataquePokemon2, eficaz2, curar2, potencia2,noEficaz2, estad2)
-                time.sleep(1)
+                time.sleep(2)
                 if self.finPartida(x, y) == True:
                     break
 
@@ -290,12 +320,12 @@ class Partida:
                 eficaz2, curar2, ataquePokemon2, potencia2, noEficaz2, estad2 = self.partidaIA(y, x)
 
                 self.resumenAtaque(x, y, ataquePokemon1, eficaz1, curar1, potencia1, noEficaz1, estad1)
-                time.sleep(1)
+                time.sleep(2)
                 if self.finPartida(x, y) == True:
                     break
 
                 self.resumenAtaque(y, x, ataquePokemon2, eficaz2, curar2, potencia2, noEficaz2, estad2)
-                time.sleep(1)
+                time.sleep(2)
                 if self.finPartida(y, x) == True:
                     break
             else:
@@ -303,18 +333,23 @@ class Partida:
                 eficaz2, curar2, ataquePokemon2, potencia2, noEficaz2, estad2 = self.partida(x, y)
 
                 self.resumenAtaque(y, x, ataquePokemon1, eficaz1, curar1, potencia1, noEficaz1, estad1)
-                time.sleep(1)
+                time.sleep(2)
                 if self.finPartida(y, x) == True:
                     break
 
                 self.resumenAtaque(x, y, ataquePokemon2, eficaz2, curar2, potencia2, noEficaz2, estad2)
-                time.sleep(1)
+                time.sleep(2)
                 if self.finPartida(x, y) == True:
                     break
 
             self.turno = self.turno + 1
 
     def seleccionarPokemonJugadorVSIA(self):
+
+        print("")
+        print("SELECCIONA UN POKEMON: ")
+        print("")
+
         f = open("pokemon.json", "r")
         c = f.read()
         f.close()
@@ -324,10 +359,10 @@ class Partida:
             print("--------------------------------")
             print(js[x]["Nombre"])
             print("Vida: " + str(js[x]["Vida"]))
-            print("Potencia " + str(js[x]["Potencia"]))
-            print("Potencia especial " + str(js[x]["Potencia especial"]))
-            print("Defensa " + str(js[x]["Defensa"]))
-            print("Defensa especial " + str(js[x]["Defensa especial"]))
+            print("Potencia: " + str(js[x]["Potencia"]))
+            print("Potencia especial: " + str(js[x]["Potencia especial"]))
+            print("Defensa: " + str(js[x]["Defensa"]))
+            print("Defensa: especial " + str(js[x]["Defensa especial"]))
             print("Tipo: " + str(js[x]["Tipo"]))
             print("Introduce " + x + " para seleccionar a " + js[x]["Nombre"])
             print("--------------------------------")
@@ -389,12 +424,16 @@ class Partida:
     def partida(self, pokemon1, pokemon2):
         # if self.turno%2 == 0:
         eficaz = False
+        print("")
         print("RONDA" + str(self.turno) + " !!")
+        time.sleep(2)
         print("Es el turno de " + pokemon1.nombre)
+        time.sleep(2)
         print("-Elige un movimiento-")
         for i in pokemon1.ataques:
             print(i.nombre)
         idMovimiento = input()
+        print("")
         for ataque in pokemon1.ataques:
             if str(ataque.id) == idMovimiento:
                 eficaz, curar, potencia, noEficaz, estad = pokemon1.atacar(pokemon2,ataque)
@@ -404,18 +443,21 @@ class Partida:
         eficaz = False
         movimientos = [1,2,3,4]
         movIA = random.choice(movimientos)
-
+        print("")
         print("RONDA" + str(self.turno) + " !!")
+        time.sleep(2)
         print("Es el turno de " + pokemonIA.nombre)
+        time.sleep(2)
         print(pokemonIA.nombre + " va a elegir su movimiento...")
         time.sleep(2)
-
+        print("")
         for ataque in pokemonIA.ataques:
             if ataque.id == movIA:
                 eficaz, curar, potencia, noEficaz, estad = pokemonIA.atacar(pokemonJugador, ataque)
                 return eficaz,curar, ataque, potencia, noEficaz, estad
 
     def resumenPartida(self,pokemon1,pokemon2): #TODO: poner waits, printear el proximo ataque, si es efectivo, si ha fallado, etc
+        print("")
         print(pokemon1.nombre)
         print("Vida: " + str(pokemon1.vida))
         print("Mana: " + str(pokemon1.mana))
@@ -425,21 +467,29 @@ class Partida:
         print("Vida: " + str(pokemon2.vida))
         print("Mana: " + str(pokemon2.mana))
         print("Velocidad: " + str(pokemon2.velocidad))
+        print("")
 
     def resumenAtaque(self, pokemon1, pokemon2, ataque, eficaz, curar, potencia, noEficaz, estad):
+        print("")
+        time.sleep(1)
         print(pokemon1.nombre + " va a realizar " + ataque.nombre + " !")
+        time.sleep(2.5)
         if ataque.tipo == "Ofensivo":
             print(pokemon1.nombre + " ha causado " + str(potencia) + " de daño a " + pokemon2.nombre)
+            time.sleep(2.5)
             if eficaz == True:
                 print("Es super eficaz !!")
             if noEficaz == True:
                 print("Es muy poco eficaz...")
+            if potencia == 0:
+                print(pokemon1.nombre + " a fallado el ataque !!")
         if ataque.tipo == "Curativo":
             if curar == True:
                 print(pokemon1.nombre + " se ha curado " + str(potencia) + " HP")
         if ataque.tipo == "Estadistico":
             if estad == True:
                 print("Se ha reducio la defensa de " + pokemon2.nombre + " a " + str(pokemon2.defensa) + " y la defensa especial a " + str(pokemon2.defensaEspecial))
+        print("")
 
     def finPartida(self,pokemon1,pokemon2):
         # if pokemon1.vida <= 0.0:
@@ -454,6 +504,7 @@ class Partida:
 
 def main():
     partida = Partida(True,False,1)
+    logo()
     partida.menu()
     return 0
 
