@@ -622,6 +622,6 @@ def main():
     partida.menu()
     return 0
 
-
+#Ejecutar para comenzar
 if __name__ == '__main__':
     main()
