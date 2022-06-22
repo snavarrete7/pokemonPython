@@ -36,6 +36,95 @@ def logo():
     print("ppppppppp")
     print(" ")
 
+class Jugador:
+    def __init__(self, name):
+        self.nombre = name
+        self.equipoPokemon = []
+
+    def elegirEquipo(self):
+        if self.nombre != "IA":
+            print(self.nombre + "Selecciona los 4 pokemons de tu equipo!")
+            for x in range(4):
+                pokemon = self.seleccionaPokemon()
+                self.equipoPokemon.append(pokemon)
+        else:
+            for x in range(4):
+                pokemon = self.seleccionaPokemonIA()
+                self.equipoPokemon.append(pokemon)
+
+
+    def seleccionaPokemon(self):
+        f = open("pokemon.json", "r")
+        c = f.read()
+        f.close()
+        js = json.loads(c)
+
+        for x in js:
+            print("--------------------------------")
+            print(js[x]["Nombre"])
+            print("Vida: " + str(js[x]["Vida"]))
+            print("Potencia: " + str(js[x]["Potencia"]))
+            print("Potencia: especial " + str(js[x]["Potencia especial"]))
+            print("Defensa: " + str(js[x]["Defensa"]))
+            print("Defensa especial: " + str(js[x]["Defensa especial"]))
+            print("Tipo: " + str(js[x]["Tipo"]))
+            print("Introduce " + x + " para seleccionar a " + js[x]["Nombre"])
+            print("--------------------------------")
+
+        opcionJugador1 = input("Numero del pokemon escogido: ")
+
+        listaAtaquesX = []
+        for x in range(4):
+            ataque = Ataque(js[str(opcionJugador1)]["Ataques"][0][str(x + 1)]["Potencia"],
+                            js[str(opcionJugador1)]["Ataques"][0][str(x + 1)]["PP"],
+                            js[str(opcionJugador1)]["Ataques"][0][str(x + 1)]["PP"],
+                            js[str(opcionJugador1)]["Ataques"][0][str(x + 1)]["Nombre"],
+                            js[str(opcionJugador1)]["Ataques"][0][str(x + 1)]["Id"],
+                            js[str(opcionJugador1)]["Ataques"][0][str(x + 1)]["Tipo1"],
+                            js[str(opcionJugador1)]["Ataques"][0][str(x + 1)]["Tipo2"],
+                            js[str(opcionJugador1)]["Ataques"][0][str(x + 1)]["Especial"])
+            listaAtaquesX.append(ataque)
+
+        pokemon = Pokemon(js[str(opcionJugador1)]["Nombre"], js[str(opcionJugador1)]["Vida"],
+                                  js[str(opcionJugador1)]["Mana"], js[str(opcionJugador1)]["Potencia"],
+                                  js[str(opcionJugador1)]["Potencia especial"], js[str(opcionJugador1)]["Defensa"],
+                                  js[str(opcionJugador1)]["Defensa especial"], js[str(opcionJugador1)]["Tipo"],
+                                  js[str(opcionJugador1)]["Id"], listaAtaquesX, js[str(opcionJugador1)]["Velocidad"])
+
+        return pokemon
+
+    def seleccionaPokemonIA(self):
+        f = open("pokemon.json", "r")
+        c = f.read()
+        f.close()
+        js = json.loads(c)
+
+        nElementos = 0
+        for x in js:
+            nElementos = nElementos + 1
+
+        opcionJugadorIA = random.randint(1, nElementos)
+
+        listaAtaquesX = []
+        for x in range(4):
+            ataque = Ataque(js[str(opcionJugadorIA)]["Ataques"][0][str(x + 1)]["Potencia"],
+                            js[str(opcionJugadorIA)]["Ataques"][0][str(x + 1)]["PP"],
+                            js[str(opcionJugadorIA)]["Ataques"][0][str(x + 1)]["PP"],
+                            js[str(opcionJugadorIA)]["Ataques"][0][str(x + 1)]["Nombre"],
+                            js[str(opcionJugadorIA)]["Ataques"][0][str(x + 1)]["Id"],
+                            js[str(opcionJugadorIA)]["Ataques"][0][str(x + 1)]["Tipo1"],
+                            js[str(opcionJugadorIA)]["Ataques"][0][str(x + 1)]["Tipo2"],
+                            js[str(opcionJugadorIA)]["Ataques"][0][str(x + 1)]["Especial"])
+            listaAtaquesX.append(ataque)
+
+        pokemon = Pokemon(js[str(opcionJugadorIA)]["Nombre"], js[str(opcionJugadorIA)]["Vida"],
+                                  js[str(opcionJugadorIA)]["Mana"], js[str(opcionJugadorIA)]["Potencia"],
+                                  js[str(opcionJugadorIA)]["Potencia especial"], js[str(opcionJugadorIA)]["Defensa"],
+                                  js[str(opcionJugadorIA)]["Defensa especial"], js[str(opcionJugadorIA)]["Tipo"],
+                                  js[str(opcionJugadorIA)]["Id"], listaAtaquesX, js[str(opcionJugadorIA)]["Velocidad"])
+
+        return pokemon
+
 class Pokemon:
     def __init__(self, name, heal, mana, potencia, potenciaEspecial, defensa, defensaEspecial, type, ide, atacks, speed):
         self.nombre = name
@@ -176,7 +265,8 @@ class Partida:
             print("SELECCIONAR MODO DE JUEGO:")
             print("1. Un jugador VS IA")
             print("2. Jugador VS Jugador")
-            print("3. Salir")
+            print("3. Modo Equipo")
+            print("4. Salir")
             mode = int(input('Escoge una opcion: '))
             if mode == 1:
                 self.stop = False
@@ -186,11 +276,35 @@ class Partida:
                 self.stop = False
                 pokemonJugador1, pokemonJugador2 = self.seleccionarPokemonJugadorVSJugador()
                 self.jugadorVsJugador(pokemonJugador1,pokemonJugador2)
-            elif mode == 3:
+            elif mode == 4:
                 exit()
+            elif mode == 3:
+                print("1. Batalla por equipos vs IA")
+                selec = int(input())
+                if selec == 1:
+                    print("Escribe tu nombre de usuario: ")
+                    nombre = input()
+                    jugador = Jugador(nombre)
+                    jugadorIA = Jugador("IA")
+                    self.batallaEquiposIA(jugador,jugadorIA)
             else:
                 print("Opción invalida")
 
+    def batallaEquiposIA(self, jugador1, jugadorIA):
+        jugador1.elegirEquipo()
+        jugadorIA.elegirEquipo()
+
+        print("")
+        print("Equipo de " + jugador1.nombre)
+        for x in jugador1.equipoPokemon:
+            print(x.nombre)
+        print("")
+        print("Equipo de " + jugadorIA.nombre)
+        for x in jugadorIA.equipoPokemon:
+            print(x.nombre)
+
+        print("La batalla va a comenzar!")
+        time.sleep(2)
 
     def seleccionarPokemonJugadorVSJugador(self):
 
