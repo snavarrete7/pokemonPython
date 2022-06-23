@@ -46,11 +46,11 @@ class Jugador:
             print(self.nombre + "Selecciona los 4 pokemons de tu equipo!")
             for x in range(4):
                 pokemon = self.seleccionaPokemon()
-                self.equipoPokemon.append(pokemon)
+                self.equipoPokemon.append([x + 1, pokemon])
         else:
             for x in range(4):
                 pokemon = self.seleccionaPokemonIA()
-                self.equipoPokemon.append(pokemon)
+                self.equipoPokemon.append([x+1, pokemon])
 
 
     def seleccionaPokemon(self):
@@ -294,17 +294,19 @@ class Partida:
         jugador1.elegirEquipo()
         jugadorIA.elegirEquipo()
 
+        time.sleep(2)
         print("")
         print("Equipo de " + jugador1.nombre)
         for x in jugador1.equipoPokemon:
-            print(x.nombre)
+            print(str(x[0]) + ". " + x[1].nombre)
         print("")
-        print("Equipo de " + jugadorIA.nombre)
-        for x in jugadorIA.equipoPokemon:
-            print(x.nombre)
 
-        print("La batalla va a comenzar!")
-        time.sleep(2)
+        print("Selecciona pokemon para iniciar: ")
+        opcionJugador = input()
+        pokemonJugador = jugador1.equipoPokemon[int(opcionJugador) - 1][1]
+        opcionIA = random.randint(1,4)
+        pokemonIA = jugadorIA.equipoPokemon[opcionIA][1]
+
 
     def seleccionarPokemonJugadorVSJugador(self):
 
